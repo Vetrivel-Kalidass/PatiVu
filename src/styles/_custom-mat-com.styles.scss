@@ -1,0 +1,34 @@
+/* INPUT */
+.mat-form-field-invalid .mat-form-field-wrapper {
+  margin-bottom: 12px !important;
+}
+
+/* ICONS */
+mat-icon.icon-sm {
+  font-size: 16px !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* BUTTON */
+a.logo-button {
+    width: 100%;
+    height: 90px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+}
+.mat-mini-fab.text-btn {
+  width: fit-content !important;
+  padding-left: 8px !important;
+  padding-right: 12px !important;
+  border-radius: 25px !important;
+}
+
+/* MENU */
+.mat-menu-item.header-nav-item {
+  line-height: 30px !important;
+  height: 35px !important;
+}

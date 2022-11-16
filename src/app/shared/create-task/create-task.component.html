@@ -1,0 +1,81 @@
+<div class="form-container d-flex flex-col justify-content-between">
+    <span>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 mat-dialog-title class="mb-0">{{ formType === appValues.create ? 'Create' : 'Edit' }} Task</h2>
+            <mat-slide-toggle [checked]="isCheckList" (change)="toggleCheckList()">
+                Check List
+            </mat-slide-toggle>
+        </div>
+        <mat-divider class="mb-16"></mat-divider>
+
+        <mat-dialog-content class="d-flex flex-col">
+            <form *ngIf="taskItemForm" [formGroup]="taskItemForm">
+                <mat-form-field appearance="legacy">
+                    <mat-label>Title</mat-label>
+                    <input matInput formControlName="title" placeholder="eg: Buy New Stocks" cdkFocusInitial>
+                </mat-form-field>
+
+                <mat-form-field appearance="legacy">
+                    <mat-label>Tag</mat-label>
+                    <mat-select formControlName="tagId">
+                        <mat-option [value]="null">-----</mat-option>
+                        <ng-container *ngIf="allTags$ | async as _allTags">
+                            <mat-option color="accent" *ngFor="let tag of _allTags; trackBy: trackByFn" [value]="tag.id" class="d-flex">
+                                <span>{{ tag.title }}</span>
+                                <span class="color-tile" [style.background-color]="tag.color"></span>
+                            </mat-option>
+                        </ng-container>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field appearance="legacy">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput formControlName="description" placeholder="eg: Buy stocks in large scale"
+                        rows="4"></textarea>
+                </mat-form-field>
+
+                <mat-form-field class="date-picker-disabled" appearance="legacy">
+                    <mat-label>Due Date</mat-label>
+                    <input matInput formControlName="dueDate" (click)="picker.open()" [matDatepicker]="picker" />
+                    <mat-datepicker-toggle matSuffix [for]="picker">
+                        <!-- <mat-icon matDatepickerToggleIcon>arrow_drop_down</mat-icon> -->
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <div class="d-flex mb-16">
+                    <mat-checkbox class="mr-50" formControlName="completed">Complted task</mat-checkbox>
+                    <mat-checkbox [style.visibility]="'hidden'" formControlName="checkListType">Check List..?</mat-checkbox>
+                </div>
+            </form>
+
+            <ng-container *ngIf="isCheckList">
+                <span class="checklist-container d-flex flex-col mb-8" *ngIf="checkLists?.length">
+                    <div class="mat-caption text-mute mb-4">Check List</div>
+                    <div *ngFor="let listItem of checkLists; trackBy: trackByFn" class="d-flex wp-100 justify-content-between align-items-center mb-8">
+                        <mat-checkbox class="m-0" name="list.id"
+                            [checked]="listItem.completed" (change)="changeCheckListItem(listItem)">
+                            <span [ngClass]="{ 'text-strike': listItem.completed }">{{ listItem.description }}</span>
+                        </mat-checkbox>
+                        <button (click)="removeCheckItem(listItem)" mat-icon-button class="check-action">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+                </span>
+
+                <mat-form-field appearance="legacy">
+                    <mat-label>Enter Check List</mat-label>
+                    <input matInput type="text" [(ngModel)]="currentCheckListDesc" (keyup.enter)="addCheckList()"
+                        placeholder="eg: Buy New Stocks">
+                    <button mat-button color="primary" matSuffix type="button" (click)="addCheckList()">ADD</button>
+                </mat-form-field>
+
+            </ng-container>
+
+        </mat-dialog-content>
+    </span>
+
+    <mat-dialog-actions align="end">
+        <button mat-button type="button" (click)="cancel()">Cancel</button>
+        <button mat-raised-button (click)="submitForm()" color="primary">{{ formType === appValues.create ? 'Create' : 'Update' }}</button>
+    </mat-dialog-actions>
+</div>

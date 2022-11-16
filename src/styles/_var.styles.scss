@@ -1,0 +1,250 @@
+@import "~@angular/material/theming";
+
+$mat-white: #ffffff;
+$mat-black: #000000;
+$mat-white-6-opacity: rgba(255, 255, 255, 0.6);
+$mat-white-38-opacity: rgba(255, 255, 255, 0.38);
+$mat-black-6-opacity: rgba(0, 0, 0, 0.6); //mute
+$mat-black-38-opacity: rgba(0, 0, 0, 0.38); //disabed
+
+// LIGHT COMPONENTS COLORS
+$mat-light-status-bar: map_get($mat-grey, 300);
+$mat-light-app-bar: map_get($mat-grey, 100);
+$mat-light-background: map_get($mat-grey, 50);
+$mat-light-hover: rgba(black, 0.04);
+$mat-light-card: $mat-white;
+$mat-light-dialog: $mat-white;
+$mat-light-disabled-button: rgba(black, 0.12);
+$mat-light-raised-button: $mat-white;
+$mat-light-focused-button: $dark-focused;
+$mat-light-selected-button: map_get($mat-grey, 300);
+$mat-light-selected-disabled-button: map_get($mat-grey, 400);
+$mat-light-disabled-button-toggle: map_get($mat-grey, 200);
+$mat-light-unselected-chip: map_get($mat-grey, 300);
+$mat-light-disabled-list-option: map_get($mat-grey, 200);
+
+$mat-light-base: $mat-black;
+$mat-light-divider: $dark-dividers;
+$mat-light-dividers: $dark-dividers;
+$mat-light-disabled: $dark-disabled-text;
+$mat-light-disabled-button: rgba(black, 0.26);
+$mat-light-disabled-text: $dark-disabled-text;
+$mat-light-elevation: $mat-black;
+$mat-light-hint-text: $dark-disabled-text;
+$mat-light-secondary-text: $dark-secondary-text;
+$mat-light-icon: rgba(black, 0.54);
+$mat-light-icons: rgba(black, 0.54);
+$mat-light-text: rgba(black, 0.87);
+$mat-light-slider-min: rgba(black, 0.87);
+$mat-light-slider-off: rgba(black, 0.26);
+$mat-light-slider-off-active: rgba(black, 0.38);
+/***********************************************************************************/
+
+// DARK COMPONENTS COLORS
+$mat-dark-status-bar: $mat-black;
+$mat-dark-app-bar: map_get($mat-grey, 900);
+$mat-dark-background: #303030;
+$mat-dark-hover: rgba(white, 0.04);
+$mat-dark-card: map_get($mat-grey, 800);
+$mat-dark-dialog: map_get($mat-grey, 800);
+$mat-dark-disabled-button: rgba(white, 0.12);
+$mat-dark-raised-button: map_get($mat-grey, 800);
+$mat-dark-focused-button: $light-focused;
+$mat-dark-selected-button: map_get($mat-grey, 900);
+$mat-dark-selected-disabled-button: map_get($mat-grey, 800);
+$mat-dark-disabled-button-toggle: $mat-black;
+$mat-dark-unselected-chip: map_get($mat-grey, 700);
+$mat-dark-disabled-list-option: $mat-black;
+$mat-dark-tooltip: map_get($mat-grey, 700);
+
+$mat-dark-base: $mat-white;
+$mat-dark-divider: $light-dividers;
+$mat-dark-dividers: $light-dividers;
+$mat-dark-disabled: $light-disabled-text;
+$mat-dark-disabled-button: rgba(white, 0.3);
+$mat-dark-disabled-text: $light-disabled-text;
+$mat-dark-elevation: $mat-black;
+$mat-dark-hint-text: $light-disabled-text;
+$mat-dark-secondary-text: $light-secondary-text;
+$mat-dark-icon: $mat-white;
+$mat-dark-icons: $mat-white;
+$mat-dark-text: $mat-white;
+$mat-dark-slider-min: $mat-white;
+$mat-dark-slider-off: rgba(white, 0.3);
+$mat-dark-slider-off-active: rgba(white, 0.3);
+
+$dynamic-theme-primary: (
+  50: var(--theme-primary-50),
+  100: var(--theme-primary-100),
+  200: var(--theme-primary-200),
+  300: var(--theme-primary-300),
+  400: var(--theme-primary-400),
+  500: var(--theme-primary-500),
+  600: var(--theme-primary-600),
+  700: var(--theme-primary-700),
+  800: var(--theme-primary-800),
+  900: var(--theme-primary-900),
+  A100: var(--theme-primary-A100),
+  A200: var(--theme-primary-A200),
+  A400: var(--theme-primary-A400),
+  A700: var(--theme-primary-A700),
+  contrast: (
+    50: var(--theme-primary-contrast-50),
+    100: var(--theme-primary-contrast-100),
+    200: var(--theme-primary-contrast-200),
+    300: var(--theme-primary-contrast-300),
+    400: var(--theme-primary-contrast-400),
+    500: var(--theme-primary-contrast-500),
+    600: var(--theme-primary-contrast-600),
+    700: var(--theme-primary-contrast-700),
+    800: var(--theme-primary-contrast-800),
+    900: var(--theme-primary-contrast-900),
+    A100: var(--theme-primary-contrast-A100),
+    A200: var(--theme-primary-contrast-A200),
+    A400: var(--theme-primary-contrast-A400),
+    A700: var(--theme-primary-contrast-A700),
+  ),
+);
+
+$dynamic-theme-accent: (
+  50: var(--theme-accent-50),
+  100: var(--theme-accent-100),
+  200: var(--theme-accent-200),
+  300: var(--theme-accent-300),
+  400: var(--theme-accent-400),
+  500: var(--theme-accent-500),
+  600: var(--theme-accent-600),
+  700: var(--theme-accent-700),
+  800: var(--theme-accent-800),
+  900: var(--theme-accent-900),
+  A100: var(--theme-accent-A100),
+  A200: var(--theme-accent-A200),
+  A400: var(--theme-accent-A400),
+  A700: var(--theme-accent-A700),
+  contrast: (
+    50: var(--theme-accent-contrast-50),
+    100: var(--theme-accent-contrast-100),
+    200: var(--theme-accent-contrast-200),
+    300: var(--theme-accent-contrast-300),
+    400: var(--theme-accent-contrast-400),
+    500: var(--theme-accent-contrast-500),
+    600: var(--theme-accent-contrast-600),
+    700: var(--theme-accent-contrast-700),
+    800: var(--theme-accent-contrast-800),
+    900: var(--theme-accent-contrast-900),
+    A100: var(--theme-accent-contrast-A100),
+    A200: var(--theme-accent-contrast-A200),
+    A400: var(--theme-accent-contrast-A400),
+    A700: var(--theme-accent-contrast-A700),
+  ),
+);
+
+// LIGHT THEME
+$dynamic-light-theme-background: (
+  status-bar: $mat-light-status-bar,
+  app-bar: $mat-light-app-bar,
+  background: $mat-light-background,
+  hover: $mat-light-hover,
+  card: $mat-light-card,
+  dialog: $mat-light-dialog,
+  disabled-button: $mat-light-disabled-button,
+  raised-button: $mat-light-raised-button,
+  focused-button: $mat-light-focused-button,
+  selected-button: $mat-light-selected-button,
+  selected-disabled-button: $mat-light-selected-disabled-button,
+  disabled-button-toggle: $mat-light-disabled-button-toggle,
+  unselected-chip: $mat-light-unselected-chip,
+  disabled-list-option: $mat-light-disabled-list-option,
+);
+$dynamic-light-theme-foreground: (
+  base: $mat-light-base,
+  divider: $mat-light-divider,
+  dividers: $mat-light-dividers,
+  disabled: $mat-light-disabled,
+  disabled-button: $mat-light-disabled-button,
+  disabled-text: $mat-light-disabled-text,
+  elevation: $mat-light-elevation,
+  hint-text: $mat-light-hint-text,
+  secondary-text: $mat-light-secondary-text,
+  icon: $mat-light-icon,
+  icons: $mat-light-icons,
+  text: $mat-light-text,
+  slider-min: $mat-light-slider-min,
+  slider-off: $mat-light-slider-off,
+  slider-off-active: $mat-light-slider-off-active,
+);
+$dynamic-light-app-theme: (
+  primary: mat-palette($dynamic-theme-primary),
+  accent: mat-palette($dynamic-theme-accent),
+  warn: mat-palette($mat-red),
+  is-dark: false,
+  foreground: $dynamic-light-theme-foreground,
+  background: $dynamic-light-theme-background,
+);
+
+// DARK THEME
+$dynamic-dark-theme-background: (
+  status-bar: $mat-dark-status-bar,
+  app-bar: $mat-dark-app-bar,
+  background: $mat-dark-background,
+  hover: $mat-dark-hover,
+  card: $mat-dark-card,
+  dialog: $mat-dark-dialog,
+  disabled-button: $mat-dark-disabled-button,
+  raised-button: $mat-dark-raised-button,
+  focused-button: $mat-dark-focused-button,
+  selected-button: $mat-dark-selected-button,
+  selected-disabled-button: $mat-dark-selected-disabled-button,
+  disabled-button-toggle: $mat-dark-disabled-button-toggle,
+  unselected-chip: $mat-dark-unselected-chip,
+  disabled-list-option: $mat-dark-disabled-list-option,
+  tooltip: $mat-dark-tooltip,
+);
+$dynamic-dark-theme-foreground: (
+  base: $mat-dark-base,
+  divider: $mat-dark-divider,
+  dividers: $mat-dark-dividers,
+  disabled: $mat-dark-disabled,
+  disabled-button: $mat-dark-disabled-button,
+  disabled-text: $mat-dark-disabled-text,
+  elevation: $mat-dark-elevation,
+  hint-text: $mat-dark-hint-text,
+  secondary-text: $mat-dark-secondary-text,
+  icon: $mat-dark-icon,
+  icons: $mat-dark-icons,
+  text: $mat-dark-text,
+  slider-min: $mat-dark-slider-min,
+  slider-off: $mat-dark-slider-off,
+  slider-off-active: $mat-dark-slider-off-active,
+);
+$dynamic-dark-app-theme: (
+  primary: mat-palette($dynamic-theme-primary),
+  accent: mat-palette($dynamic-theme-accent),
+  warn: mat-palette($mat-red),
+  is-dark: true,
+  foreground: $dynamic-dark-theme-foreground,
+  background: $dynamic-dark-theme-background,
+);
+
+$primary-color: var(--theme-primary-200);
+$accent-color: var(--theme-accent-500);
+$warn-color: map_get($mat-red, 500);
+$light-border: 1px solid $mat-light-divider;
+$dark-border: 1px solid $mat-dark-divider;
+
+$dynamic-typography: mat-typography-config(
+  $font-family: 'Roboto, "Helvetica Neue", sans-serif',
+  $display-4: mat-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+  $display-3: mat-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  $display-2: mat-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+  $display-1: mat-typography-level(34px, 40px, 400),
+  $headline: mat-typography-level(24px, 32px, 400),
+  $title: mat-typography-level(20px, 32px, 500),
+  $subheading-2: mat-typography-level(16px, 28px, 400),
+  $subheading-1: mat-typography-level(15px, 24px, 400),
+  $body-2: mat-typography-level(14px, 24px, 500),
+  $body-1: mat-typography-level(14px, 20px, 400),
+  $caption: mat-typography-level(12px, 20px, 400),
+  $button: mat-typography-level(14px, 14px, 500),
+  $input: mat-typography-level(inherit, 1.125, 400),
+);

@@ -1,0 +1,34 @@
+<div class="p-16">
+        <div cdkDropList class="list-container" (cdkDropListDropped)="drop($event)">
+            <div class="list-box" *ngFor="let note of allNotes; trackBy: trackByFn; let i = index" cdkDrag>
+              <div class="list-custom-placeholder" *cdkDragPlaceholder></div>
+        <mat-expansion-panel #noteExp class="note-item hover-box-shadow-1-tile" disabled hideToggle>
+            <mat-expansion-panel-header>
+                <div [style.background]="getTagColor(note.tagId)" class="tag-bar"></div>
+                <div class="details">
+                    <a (click)="noteExp.toggle()">
+                        <div *ngIf="note.title" class="mat-headline-1 m-0">{{ note.title }}</div>
+                        <div *ngIf="note.createdAt" class="mat-caption text-mute mb-0">{{ note.createdAt | date: 'short' }}</div>
+                    </a>
+                </div>
+
+                <button mat-icon-button [matMenuTriggerFor]="moreOptions">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #moreOptions="matMenu">
+                    <button mat-menu-item (click)="editNote(note)">
+                        <mat-icon class="material-icons-outlined">edit</mat-icon>
+                        <span>Edit</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteNote(note)">
+                        <mat-icon class="material-icons-outlined">delete</mat-icon>
+                        <span>Delete</span>
+                    </button>
+                </mat-menu>
+            </mat-expansion-panel-header>
+            
+            <div [innerHTML]="note.description" class="mb-16"></div>
+        </mat-expansion-panel>
+        </div>
+        </div>
+</div>

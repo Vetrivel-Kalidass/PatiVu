@@ -1,0 +1,36 @@
+<div class="form-container d-flex flex-col justify-content-between">
+    <span>
+        <h2 mat-dialog-title class="mb-4">{{ formType === appValues.create ? 'Create' : 'Edit' }} Tag</h2>
+        <mat-divider class="mb-16"></mat-divider>
+        <mat-dialog-content class="d-flex flex-col">
+            <form *ngIf="tagItemForm" [formGroup]="tagItemForm">
+
+                <mat-form-field appearance="legacy">
+                    <mat-label>Title</mat-label>
+                    <input matInput type="text" formControlName="title" placeholder="eg: Cool Theme" cdkFocusInitial>
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput type="text" formControlName="description"
+                        placeholder="eg: Buy stocks in large scale" rows="6"></textarea>
+                </mat-form-field>
+
+                <mat-form-field appearance="legacy">
+                    <mat-label>Tag Color</mat-label>
+                    <input matInput type="text" formControlName="color" [matMenuTriggerFor]="menu" />
+                </mat-form-field>
+                <mat-menu #menu="matMenu" class="color-selector">
+                    <color-twitter #colorPicker id="tagColor" [colors]="defaultColors" [color]="currentColor"
+                        (onChangeComplete)="handleChangeColor($event)"></color-twitter>
+                </mat-menu>
+
+            </form>
+        </mat-dialog-content>
+
+    </span>
+    <mat-dialog-actions align="end">
+        <button mat-button type="button" (click)="cancel()">Cancel</button>
+        <button mat-raised-button (click)="submitForm()" color="primary">{{ formType === appValues.create ? 'Create' :
+            'Update' }}</button>
+    </mat-dialog-actions>
+</div>

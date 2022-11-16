@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-between align-items-center px-16 pt-16">
+    <div class="mat-headline m-0">My Profile</div>
+    <div class="options-menu">
+        <button mat-icon-button (click)="toggleDarkMode()">
+            <mat-icon class="material-icons-outlined">{{ isDarkMode ? 'dark_mode' : 'light_mode' }}</mat-icon>
+        </button>    
+        <button mat-icon-button (click)="openSettings()">
+            <mat-icon class="material-icons-outlined">settings</mat-icon>
+        </button>    
+    </div>
+  </div>
+
+<mat-card class="profile-card hover-box-shadow-1-tile">
+
+    <div class="profile-wrapper">
+        <div class="img-wrapper">
+            <img src="https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg" alt="profile image">
+        </div>
+        <div class="user-details">
+            <div class="mat-subheading-2 m-0">Vetrivel Kalidass</div>
+            <div class="mat-caption text-mute m-0">vetrivel@xyz.com</div>
+        </div>
+
+        <div class="profile-actions">
+            <a mat-icon-button color="primary">
+                <mat-icon class="material-icons-outlined">edit</mat-icon>
+            </a>
+        </div>
+    </div>
+
+    <div class="task-wrapper">
+        <div class="task-details">
+            <div class="mat-subheading-1 m-0">Created</div>
+            <div class="mat-caption text-mute m-0">107</div>
+        </div>
+        <div class="task-details">
+            <div class="mat-subheading-1 m-0">Completed</div>
+            <div class="mat-caption text-mute m-0">101</div>
+        </div>
+        <div class="task-details">
+            <div class="mat-subheading-1 m-0">Pending</div>
+            <div class="mat-caption text-mute m-0">6</div>
+        </div>
+    </div>
+
+</mat-card>
+
+<div class="statistics-card-group d-scroll-none">
+    <mat-card class="bg-primary text-match-bg hover-box-shadow-1-tile">
+        <div class="mat-subheading-2 m-0">Created</div>
+        <div class="mat-caption m-0">107</div>
+    </mat-card>
+
+    <mat-card class="bg-primary text-match-bg hover-box-shadow-1-tile">
+        <div class="mat-subheading-2 m-0">Created</div>
+        <div class="mat-caption m-0">107</div>
+    </mat-card>
+
+    <mat-card class="bg-primary text-match-bg hover-box-shadow-1-tile">
+        <div class="mat-subheading-2 m-0">Created</div>
+        <div class="mat-caption m-0">107</div>
+    </mat-card>
+
+    <mat-card class="bg-primary text-match-bg hover-box-shadow-1-tile">
+        <div class="mat-subheading-2 m-0">Created</div>
+        <div class="mat-caption m-0">107</div>
+    </mat-card>
+</div>

@@ -1,0 +1,110 @@
+<div cdkDropListGroup class="task-group-list">
+
+    <span>
+        <mat-card class="task-group bg-transparent no-box-shadow">
+        
+            <div cdkDropList class="list-container" [cdkDropListData]="allTasks" (cdkDropListDropped)="drop($event)">
+                <div class="list-box" *ngFor="let task of allTasks; trackBy: trackByFn; let i = index" cdkDrag>
+                  <div class="list-custom-placeholder" *cdkDragPlaceholder></div>
+                  <mat-expansion-panel #expPanel class="task-item hover-box-shadow-1-tile" disabled hideToggle [ngClass]="{ 'bg-disabled text-mute': task.completed }">
+                      
+                      <div [style.background]="getTagColor(task.tagId)" class="tag-bar"></div>
+                      <mat-expansion-panel-header>
+                          <div [style.background]="getTagColor(task.tagId)" class="tag-bar-inner"></div>
+          
+                          <mat-checkbox [checked]="task.completed" (change)="checkBoxChange(task)"></mat-checkbox>
+                          <div class="details" [ngClass]="{ 'complete': task.completed }">
+                              <a (click)="expPanel.toggle()">
+                                  <div *ngIf="task.title" class="mat-headline-1 mb-0">{{ task.title }}</div>
+                                  <div *ngIf="task.createdAt || task.dueDate" class="mat-caption text-mute mb-0">
+                                      {{ (task.createdAt | date: 'mediumDate') || '' }} - {{ (task.dueDate | date: 'mediumDate') || 'Any Time' }}
+                                  </div>
+                              </a>
+                          </div>
+                          <button mat-icon-button [matMenuTriggerFor]="moreOptions">
+                              <mat-icon>more_vert</mat-icon>
+                          </button>
+                          <mat-menu #moreOptions="matMenu">
+                              <button mat-menu-item (click)="editTask(task)">
+                                  <mat-icon class="material-icons-outlined">edit</mat-icon>
+                                  <span>Edit</span>
+                              </button>
+                              <button mat-menu-item (click)="deleteTask(task)">
+                                  <mat-icon class="material-icons-outlined">delete</mat-icon>
+                                  <span>Delete</span>
+                              </button>
+                          </mat-menu>
+                      </mat-expansion-panel-header>
+                      <div *ngIf="task.description" class="mat-body-1 text-mute mb-12">{{ task.description }}</div>
+                      <span class="checklist-container d-flex flex-col" *ngIf="task.checkList?.length">
+                          <mat-checkbox 
+                              class="text-mute mb-12" 
+                              *ngFor="let listItem of task.checkList; trackBy: trackByFn" 
+                              name="listItem.id" 
+                              (change)="checklistChange(task, listItem)" 
+                              [checked]="listItem.completed"
+                          >
+                              <span [ngClass]="{ 'text-strike': listItem.completed }">{{ listItem.description }}</span>
+                          </mat-checkbox>
+                      </span>
+                  </mat-expansion-panel>
+                </div>
+              </div>
+        </mat-card>
+    </span>
+    
+    <span id="focusedTaskGroup">
+        <div class="mat-heading-1 text-mute ml-8 mb-8">Focused Tasks</div>
+        <mat-card class="task-group bg-transparent no-box-shadow">
+    
+            <div cdkDropList class="list-container" [cdkDropListData]="focusedTasks" (cdkDropListDropped)="drop($event)">
+                    <div class="list-box" *ngFor="let task of focusedTasks; trackBy: trackByFn; let i = index" cdkDrag>
+                      <div class="list-custom-placeholder" *cdkDragPlaceholder></div>
+                      <mat-expansion-panel #focusedExpPanel class="task-item hover-box-shadow-1-tile" disabled hideToggle [ngClass]="{ 'bg-disabled text-mute': task.completed }">
+                          
+                          <div [style.background]="getTagColor(task.tagId)" class="tag-bar"></div>
+                          <mat-expansion-panel-header>
+                              <div [style.background]="getTagColor(task.tagId)" class="tag-bar-inner"></div>
+              
+                              <mat-checkbox [checked]="task.completed" (change)="checkBoxChange(task)"></mat-checkbox>
+                              <div class="details" [ngClass]="{ 'complete': task.completed }">
+                                  <a (click)="focusedExpPanel.toggle()">
+                                      <div *ngIf="task.title" class="mat-headline-1 mb-0">{{ task.title }}</div>
+                                      <div *ngIf="task.createdAt || task.dueDate" class="mat-caption text-mute mb-0">
+                                          {{ (task.createdAt | date: 'mediumDate') || '' }} - {{ (task.dueDate | date: 'mediumDate') || 'Any Time' }}
+                                      </div>
+                                  </a>
+                              </div>
+                              <button mat-icon-button [matMenuTriggerFor]="moreOptions">
+                                  <mat-icon>more_vert</mat-icon>
+                              </button>
+                              <mat-menu #moreOptions="matMenu">
+                                  <button mat-menu-item (click)="editTask(task)">
+                                      <mat-icon class="material-icons-outlined">edit</mat-icon>
+                                      <span>Edit</span>
+                                  </button>
+                                  <button mat-menu-item (click)="deleteTask(task)">
+                                      <mat-icon class="material-icons-outlined">delete</mat-icon>
+                                      <span>Delete</span>
+                                  </button>
+                              </mat-menu>
+                          </mat-expansion-panel-header>
+                          <div *ngIf="task.description" class="mat-body-1 text-mute mb-12">{{ task.description }}</div>
+                          <span class="checklist-container d-flex flex-col" *ngIf="task.checkList?.length">
+                              <mat-checkbox 
+                                  class="text-mute mb-12" 
+                                  *ngFor="let listItem of task.checkList; trackBy: trackByFn" 
+                                  name="listItem.id" 
+                                  (change)="checklistChange(task, listItem)" 
+                                  [checked]="listItem.completed"
+                              >
+                                  <span [ngClass]="{ 'text-strike': listItem.completed }">{{ listItem.description }}</span>
+                              </mat-checkbox>
+                          </span>
+                      </mat-expansion-panel>
+                    </div>
+            </div>
+        </mat-card>
+    </span>
+
+</div>

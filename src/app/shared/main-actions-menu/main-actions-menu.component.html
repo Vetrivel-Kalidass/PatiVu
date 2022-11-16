@@ -1,0 +1,26 @@
+<mat-nav-list>
+    <a mat-list-item (click)="createTask()">
+      <mat-icon class="material-icons-outlined mr-18">checklist</mat-icon>
+      <span>
+        <span mat-line>Create New Task</span>
+        <span mat-line class="text-mute">Manage your time wisely</span>
+      </span>
+    </a>
+  
+    <a mat-list-item (click)="navigateTo('notes/create')">
+      <mat-icon class="material-icons-outlined mr-18">splitscreen</mat-icon>
+      <span>
+        <span mat-line>Create Quick Note</span>
+        <span mat-line class="text-mute">Note the things for more productivity</span>
+      </span>
+    </a>
+    
+    <a mat-list-item (click)="createTag()">
+      <mat-icon class="material-icons-outlined mr-18">grid_view</mat-icon>
+      <span>
+        <span mat-line>Create Tags</span>
+        <span mat-line class="text-mute">Group the tasks and notes.</span>
+      </span>
+    </a>
+</mat-nav-list>
+  

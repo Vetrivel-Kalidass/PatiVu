@@ -1,0 +1,166 @@
+/* BOX STYLES */
+.wp-100 {
+  width: 100% !important;
+}
+.hp-100 {
+  height: 100% !important;
+}
+.w-unset {
+  width: unset !important;
+}
+.h-unset {
+  height: unset !important;
+}
+
+$sizes: 0, 1, 2, 4, 5, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 25, 30, 32,
+  35, 40, 45, 48, 50, 55, 56, 60, 65, 70, 75, 80, 85, 90, 95, 100, 104, 200, 220,
+  250, 265, 275, 280, 300, 400, 450;
+
+/* WIDTH, HEIGHT, BORDER RADIUS */
+@each $size in $sizes {
+  .vw-#{$size} {
+    width: #{$size}vw !important;
+  }
+  .vh-#{$size} {
+    height: #{$size}vh !important;
+  }
+  .w-#{$size} {
+    width: #{$size}px !important;
+  }
+  .h-#{$size} {
+    height: #{$size}px !important;
+  }
+  .min-w-#{$size} {
+    min-width: #{$size}px !important;
+  }
+  .min-h-#{$size} {
+    min-height: #{$size}px !important;
+  }
+  .max-w-#{$size} {
+    max-width: #{$size}px !important;
+  }
+  .max-h-#{$size} {
+    max-height: #{$size}px !important;
+  }
+  .border-radius-#{$size} {
+    border-radius: #{$size}px !important;
+  }
+  .m-#{$size} {
+    margin: #{$size}px !important;
+  }
+  .mt-#{$size} {
+    margin-top: #{$size}px !important;
+  }
+  .mb-#{$size} {
+    margin-bottom: #{$size}px !important;
+  }
+  .ml-#{$size} {
+    margin-left: #{$size}px !important;
+  }
+  .mr-#{$size} {
+    margin-right: #{$size}px !important;
+  }
+  .mx-#{$size} {
+    margin-left: #{$size}px !important;
+    margin-right: #{$size}px !important;
+  }
+  .my-#{$size} {
+    margin-top: #{$size}px !important;
+    margin-bottom: #{$size}px !important;
+  }
+  .p-#{$size} {
+    padding: #{$size}px !important;
+  }
+  .px-#{$size} {
+    padding-left: #{$size}px !important;
+    padding-right: #{$size}px !important;
+  }
+  .py-#{$size} {
+    padding-top: #{$size}px !important;
+    padding-bottom: #{$size}px !important;
+  }
+  .pt-#{$size} {
+    padding-top: #{$size}px !important;
+  }
+  .pb-#{$size} {
+    padding-bottom: #{$size}px !important;
+  }
+  .pl-#{$size} {
+    padding-left: #{$size}px !important;
+  }
+  .pr-#{$size} {
+    padding-right: #{$size}px !important;
+  }
+  .z-index-#{$size} {
+    z-index: #{$size} !important;
+  }
+}
+
+.text-center {
+  text-align: center !important;
+}
+.text-left {
+  text-align: left !important;
+}
+.text-right {
+  text-align: right !important;
+}
+
+.text-strike {
+  text-decoration: line-through;
+}
+
+.text-truncate {
+  white-space: nowrap !important;
+  text-overflow: ellipsis;
+  overflow: hidden !important;
+  word-break: break-word;
+  display: block !important;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0px auto;
+  position: relative;
+}
+.container-fluid {
+  width: 100%;
+  position: relative;
+}
+
+/* Mobile devices. */
+@media (max-width: 599px) {
+  .container {
+    max-width: 100%;
+    margin: 0px 16px;
+  }
+}
+/* iPads, Tablets. */
+@media (min-width: 600px) and (max-width: 904px) {
+  .container {
+    max-width: 100%;
+    margin: 0px 32px;
+  }
+}
+/* Small screens, laptops. */
+@media (min-width: 905px) and (max-width: 1239px) {
+  .container {
+    max-width: 840px;
+    margin: 0px auto;
+  }
+}
+/* Desktops, large screens. */
+@media (min-width: 1240px) and (max-width: 1439px) {
+  .container {
+    max-width: 100%;
+    margin: 0px 100px;
+  }
+}
+/* large screens and more */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+    margin: 0px auto;
+  }
+}

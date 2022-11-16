@@ -1,0 +1,40 @@
+<div class="form-container page-view d-flex flex-col justify-content-between">
+
+    <div class="d-flex flex-col">
+        <h2 mat-dialog-title class="mb-4">{{ formType === appValues.create ? 'Create' : 'Edit' }} Note</h2>
+        <mat-divider class="mb-16"></mat-divider>
+
+        <form class="mb-16" *ngIf="noteItemForm" [formGroup]="noteItemForm">
+            <div class="d-flex">
+                <mat-form-field appearance="legacy">
+                    <mat-label>Title</mat-label>
+                    <input matInput formControlName="title" placeholder="eg: Buy New Stocks" cdkFocusInitial>
+                </mat-form-field>
+    
+                <mat-form-field appearance="legacy">
+                    <mat-label>Tag</mat-label>
+                    <mat-select formControlName="tagId">
+                        <mat-option [value]="null">-----</mat-option>
+                        <ng-container *ngIf="allTags$ | async as _allTags">
+                            <mat-option color="accent" *ngFor="let tag of _allTags; trackBy: trackByFn" [value]="tag.id" class="d-flex">
+                                <span>{{ tag.title }}</span>
+                                <span class="color-tile" [style.background-color]="tag.color"></span>
+                            </mat-option>
+                        </ng-container>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="mat-heading-1 text-mute mb-8">Description</div>
+                <ngx-editor-menu [editor]="descriptionEditor" [toolbar]="toolbar">
+                </ngx-editor-menu>
+                <ngx-editor [outputFormat]="'html'" [editor]="descriptionEditor" formControlName="description">
+                </ngx-editor>
+        </form>
+    </div>
+
+    <mat-dialog-actions class="p-0 mb-16 bg-back" align="end">
+        <a mat-button routerLink="/home/notes" class="mr-8">Cancel</a>
+        <button mat-raised-button (click)="submitForm()" color="primary">{{ formType === appValues.create ? 'Create' : 'Update' }}</button>
+    </mat-dialog-actions>
+</div>

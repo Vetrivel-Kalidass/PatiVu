@@ -1,0 +1,63 @@
+<div class="side-navbar-container">
+    <div class="top-content">
+        <div class="profile-block">
+            <div class="profile-wrapper">
+                <div class="img-wrapper">
+                    <img src="https://image.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg"
+                        alt="profile image">
+                </div>
+                <div class="user-details">
+                    <a routerLink="/home/profile">
+                        <div class="mat-subheading-2 m-0">Vetrivel Kalidass</div>
+                        <div class="mat-caption text-mute m-0">vetrivel@xyz.com</div>
+                    </a>
+                </div>
+
+                <div class="profile-actions">
+                    <button mat-icon-button (click)="openSettings()">
+                        <mat-icon class="material-icons-outlined">settings</mat-icon>
+                    </button> 
+                </div>
+            </div>
+        </div>
+        <mat-divider class="mb-4"></mat-divider>
+
+        <mat-nav-list MatNavList class="mb-8" role="navigation">
+            <a mat-list-item routerLink="/home/work-list" routerLinkActive="mat-elevation-z2" [routerLinkActiveOptions]="{ exact: true }">
+                <mat-icon class="material-icons-outlined mr-8">checklist</mat-icon>
+                <span>Tasks</span>
+            </a>
+            <a mat-list-item routerLink="/home/notes" routerLinkActive="mat-elevation-z2" [routerLinkActiveOptions]="{ exact: true }">
+                <mat-icon class="material-icons-outlined mr-8">splitscreen</mat-icon>
+                <span>Notes</span>
+            </a>
+        </mat-nav-list>
+        
+        <ng-container *ngIf="allTags$ | async as _allTags">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="mat-subheading-2 text-mute mb-0 ml-8">Groups</div>
+                
+                <a mat-icon-button routerLink="/home/groups" routerLinkActive="active">
+                    <mat-icon>open_in_full</mat-icon>
+                </a>
+            </div>
+            <mat-divider class="mb-4"></mat-divider>
+    
+            <mat-nav-list MatNavList role="sub-navigation" class="sub-navigation-list">
+                <ng-container *ngFor="let tag of _allTags; trackBy: trackByFn">
+                    <a mat-list-item routerLink="/home/work-list" [queryParams]="{ tag: tag.id }" routerLinkActive="mat-elevation-z2">
+                        <span class="color-tile mt-4" [style.background-color]="tag.color"></span>
+                        <span class="text-truncate mr-20">{{ tag.title }}</span>
+                    </a>
+                </ng-container>
+            </mat-nav-list>
+        </ng-container>
+
+    </div>
+    <div class="bottom-content">
+        <button (click)="openMainActionMenu()" mat-raised-button color="primary" class="wp-100">
+            <mat-icon>add</mat-icon>
+            <span>CREATE NEW</span>
+        </button>
+    </div>
+</div>
