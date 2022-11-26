@@ -10,6 +10,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
  
 
 @NgModule({
@@ -29,7 +32,10 @@ import { CoreModule } from './core/core.module';
     MatProgressBarModule,
     MaterialModule,
     FormsModule,
-    CoreModule
+    CoreModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
   providers: [],
   bootstrap: [AppComponent]

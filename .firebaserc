@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pativu-22": {
+      "hosting": {
+        "development-planner": [
+          "pativu-22"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pativu-22"
+  }
+}

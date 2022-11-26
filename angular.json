@@ -104,6 +104,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "development-planner:build:production",
+            "firebaseProject": "pativu-22",
+            "firebaseHostingSite": "pativu-22"
+          }
         }
       }
     }
