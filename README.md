@@ -1,11 +1,11 @@
-# Development Planner(PWA version)
+# PatiVu (PWA version)
 [![Demo here](https://developmentplannerv2.netlify.app/home/work-list)](https://developmentplannerv2.netlify.app/home/work-list)
 
 ## Introduction
 
 Development planner is quick available task manager and notes maintianing web application which also install by PWA feature(can see the install button on top right of PWA supported browsers like chrome). Users can manage their tasks without any major installation, keep notes and group tasks by tags. view [demo here](https://developmentplannerv2.netlify.app/home/work-list).
 
-## Development Planner
+## PatiVu
 
 ![dp_preview_img](https://user-images.githubusercontent.com/69761548/148632326-a8d686a0-78d4-47c5-8af8-1f2e022aad9b.png)
 
